@@ -141,11 +141,7 @@ def generate_html_with_ernie(markdown_content):
     """Generate HTML using ERNIE API (or LM Studio fallback)"""
     print("[4/5] Generating HTML with AI...")
 
-    # Try ERNIE API first
     api_key = os.getenv("BAIDU_API_KEY") or os.getenv("ERNIE_API_KEY")
-
-    # Use LM Studio as fallback (local AI)
-    lm_studio_url = "http://localhost:1234/v1/chat/completions"
 
     prompt = f"""Convert this Markdown content into a beautiful HTML page with Tailwind CSS styling.
 Include a header, main content area, and footer. Make it professional and modern.
@@ -155,8 +151,26 @@ Markdown content:
 
 Generate only the HTML code, no explanations."""
 
+    # Try ERNIE API first (official)
+    if api_key:
+        try:
+            import erniebot
+            erniebot.api_type = "aistudio"
+            erniebot.access_token = api_key
+
+            response = erniebot.ChatCompletion.create(
+                model="ernie-4.0-turbo-8k",
+                messages=[{"role": "user", "content": prompt}]
+            )
+            html_content = response.get_result()
+            print("   Generated with ERNIE API (official)")
+            return html_content
+        except Exception as e:
+            print(f"   ERNIE API error: {e}")
+
+    # Try LM Studio as fallback
+    lm_studio_url = "http://localhost:1234/v1/chat/completions"
     try:
-        # Try LM Studio first (local, faster)
         response = requests.post(
             lm_studio_url,
             json={
