@@ -5,109 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERNIE AI Challenge 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: 'Segoe UI', system-ui, sans-serif; }
-    </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 min-h-screen text-white">
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 h-screen text-white overflow-hidden">
 
-    <!-- Hero Section Compact -->
-    <div class="max-w-5xl mx-auto px-6 py-8">
+    <div class="max-w-4xl mx-auto px-4 py-4 h-full flex flex-col justify-between">
 
-        <!-- Header -->
-        <header class="text-center mb-8">
-            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-4">
-                <span class="text-2xl">🤖</span>
-                <span class="text-sm font-medium text-purple-200">ERNIE AI Developer Challenge 2025</span>
+        <!-- Header Compact -->
+        <header class="text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1 mb-2 text-sm">
+                <span>🤖</span>
+                <span class="text-purple-200">ERNIE AI Developer Challenge 2025</span>
             </div>
-            <h1 class="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
                 Document Intelligence Platform
             </h1>
-            <p class="text-purple-200 text-lg">PDF → PaddleOCR → ERNIE → HTML</p>
+            <p class="text-purple-300 text-sm mt-1">PDF → PaddleOCR → ERNIE → HTML</p>
         </header>
 
-        <!-- Main Grid -->
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <!-- Main Grid Compact -->
+        <div class="grid grid-cols-2 gap-4">
 
-            <!-- Technologies Card -->
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <span class="text-2xl">⚡</span> Technologies
+            <!-- Technologies -->
+            <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+                <h2 class="text-base font-semibold mb-3 flex items-center gap-2">
+                    <span>⚡</span> Technologies
                 </h2>
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3 bg-white/5 rounded-lg p-3">
-                        <span class="text-xl">🧠</span>
-                        <div>
-                            <p class="font-medium">ERNIE 4.5</p>
-                            <p class="text-sm text-purple-300">Analyse semantique avancee</p>
-                        </div>
+                <div class="space-y-2 text-sm">
+                    <div class="flex items-center gap-2 bg-white/5 rounded-lg p-2">
+                        <span>🧠</span>
+                        <span><b>ERNIE 4.5</b> - Analyse semantique</span>
                     </div>
-                    <div class="flex items-center gap-3 bg-white/5 rounded-lg p-3">
-                        <span class="text-xl">📄</span>
-                        <div>
-                            <p class="font-medium">PaddleOCR-VL</p>
-                            <p class="text-sm text-purple-300">Extraction texte multi-langues</p>
-                        </div>
+                    <div class="flex items-center gap-2 bg-white/5 rounded-lg p-2">
+                        <span>📄</span>
+                        <span><b>PaddleOCR-VL</b> - Extraction texte</span>
                     </div>
-                    <div class="flex items-center gap-3 bg-white/5 rounded-lg p-3">
-                        <span class="text-xl">🐍</span>
-                        <div>
-                            <p class="font-medium">Python Pipeline</p>
-                            <p class="text-sm text-purple-300">Orchestration automatisee</p>
-                        </div>
+                    <div class="flex items-center gap-2 bg-white/5 rounded-lg p-2">
+                        <span>🐍</span>
+                        <span><b>Python</b> - Orchestration</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Pipeline Card -->
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <span class="text-2xl">🔄</span> Pipeline
+            <!-- Pipeline -->
+            <div class="bg-white/10 rounded-xl p-4 border border-white/20">
+                <h2 class="text-base font-semibold mb-3 flex items-center gap-2">
+                    <span>🔄</span> Pipeline
                 </h2>
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                        <span>Upload PDF/Image</span>
+                <div class="flex items-center justify-between text-sm">
+                    <div class="text-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold mx-auto">1</div>
+                        <p class="mt-1 text-xs">Upload</p>
                     </div>
-                    <div class="w-0.5 h-4 bg-purple-500 ml-4"></div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm font-bold">2</div>
-                        <span>PaddleOCR Extraction</span>
+                    <div class="text-purple-400">→</div>
+                    <div class="text-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold mx-auto">2</div>
+                        <p class="mt-1 text-xs">OCR</p>
                     </div>
-                    <div class="w-0.5 h-4 bg-purple-500 ml-4"></div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm font-bold">3</div>
-                        <span>Markdown Conversion</span>
+                    <div class="text-purple-400">→</div>
+                    <div class="text-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold mx-auto">3</div>
+                        <p class="mt-1 text-xs">Markdown</p>
                     </div>
-                    <div class="w-0.5 h-4 bg-purple-500 ml-4"></div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-sm font-bold">4</div>
-                        <span>ERNIE HTML Generation</span>
+                    <div class="text-purple-400">→</div>
+                    <div class="text-center">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold mx-auto">4</div>
+                        <p class="mt-1 text-xs">HTML</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Metrics Row -->
-        <div class="grid grid-cols-3 gap-4 mb-8">
-            <div class="bg-gradient-to-br from-green-500/20 to-green-600/20 backdrop-blur-md rounded-xl p-4 text-center border border-green-500/30">
-                <div class="text-3xl font-bold text-green-400">96.8%</div>
-                <div class="text-sm text-green-200">Precision OCR</div>
+        <!-- Metrics Compact -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-green-500/20 rounded-lg p-3 text-center border border-green-500/30">
+                <div class="text-2xl font-bold text-green-400">96.8%</div>
+                <div class="text-xs text-green-200">Precision</div>
             </div>
-            <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-md rounded-xl p-4 text-center border border-blue-500/30">
-                <div class="text-3xl font-bold text-blue-400">2.3s</div>
-                <div class="text-sm text-blue-200">Par document</div>
+            <div class="bg-blue-500/20 rounded-lg p-3 text-center border border-blue-500/30">
+                <div class="text-2xl font-bold text-blue-400">2.3s</div>
+                <div class="text-xs text-blue-200">Par doc</div>
             </div>
-            <div class="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-md rounded-xl p-4 text-center border border-purple-500/30">
-                <div class="text-3xl font-bold text-purple-400">80+</div>
-                <div class="text-sm text-purple-200">Langues</div>
+            <div class="bg-purple-500/20 rounded-lg p-3 text-center border border-purple-500/30">
+                <div class="text-2xl font-bold text-purple-400">80+</div>
+                <div class="text-xs text-purple-200">Langues</div>
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="text-center text-purple-300 text-sm">
-            <p>Powered by <strong>ERNIE 4.5</strong> + <strong>PaddleOCR-VL</strong> | ERNIE AI Challenge 2025</p>
-            <p class="mt-1 text-purple-400">github.com/Turbo31150/ernie-challenge</p>
+        <!-- Footer Compact -->
+        <footer class="text-center text-purple-400 text-xs">
+            <p><b>ERNIE 4.5</b> + <b>PaddleOCR-VL</b> | github.com/Turbo31150/ernie-challenge</p>
         </footer>
 
     </div>
