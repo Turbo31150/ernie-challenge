@@ -16,50 +16,52 @@ DATA_DIR = PROJECT_ROOT / "data"
 OUTPUT_DIR = PROJECT_ROOT / "output"
 
 def create_sample_document():
-    """Create a sample image with French text for OCR testing"""
-    print("[1/5] Creating sample document...")
+    """Use existing PDF or create one if needed"""
+    print("[1/5] Checking PDF document...")
 
-    # Create image with text
-    img = Image.new('RGB', (800, 600), color='white')
-    draw = ImageDraw.Draw(img)
+    pdf_path = DATA_DIR / "sample_document.pdf"
 
-    # Sample French text about AI
-    text_content = """
-    ERNIE AI Challenge 2025
+    # Check if PDF exists
+    if pdf_path.exists():
+        print(f"   Using existing PDF: {pdf_path}")
+        return pdf_path
 
-    Document Intelligence avec PaddleOCR
-
-    Technologies utilisees:
-    - ERNIE 4.5 pour l'analyse semantique
-    - PaddleOCR-VL pour l'extraction
-    - Python pour l'orchestration
-
-    Avantages:
-    1. Precision de 96.8%
-    2. Support de 80+ langues
-    3. Traitement en 2.3 secondes
-
-    Ce document demontre la capacite
-    du pipeline a extraire et analyser
-    du texte en francais.
-    """
-
-    # Draw text
+    # Create PDF if not exists
     try:
-        font = ImageFont.truetype("arial.ttf", 24)
-    except:
+        from fpdf import FPDF
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font('Arial', 'B', 24)
+        pdf.cell(0, 20, 'ERNIE AI Challenge 2025', ln=True, align='C')
+        pdf.ln(10)
+        pdf.set_font('Arial', 'B', 16)
+        pdf.cell(0, 10, 'Document Intelligence Platform', ln=True, align='C')
+        pdf.ln(15)
+        pdf.set_font('Arial', '', 12)
+        pdf.multi_cell(0, 8, '''Technologies utilisees:
+- ERNIE 4.5 pour l analyse semantique
+- PaddleOCR-VL pour l extraction de texte
+- Python pour l orchestration du pipeline
+
+Avantages:
+1. Precision de 96.8 pourcent
+2. Support de plus de 80 langues
+3. Traitement en 2.3 secondes par document
+''')
+        pdf.output(str(pdf_path))
+        print(f"   Created PDF: {pdf_path}")
+    except ImportError:
+        print("   FPDF not installed, using fallback")
+        # Fallback to PNG if fpdf not available
+        img = Image.new('RGB', (800, 600), color='white')
+        draw = ImageDraw.Draw(img)
         font = ImageFont.load_default()
+        draw.text((50, 50), "ERNIE AI Challenge 2025", fill='black', font=font)
+        img_path = DATA_DIR / "sample_document.png"
+        img.save(str(img_path))
+        return img_path
 
-    y_position = 30
-    for line in text_content.strip().split('\n'):
-        draw.text((50, y_position), line.strip(), fill='black', font=font)
-        y_position += 35
-
-    # Save image
-    img_path = DATA_DIR / "sample_document.png"
-    img.save(str(img_path))
-    print(f"   Created: {img_path}")
-    return img_path
+    return pdf_path
 
 
 def extract_with_paddleocr(image_path):
