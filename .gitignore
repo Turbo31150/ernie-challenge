@@ -1,0 +1,50 @@
+# ERNIE Challenge - Hide orchestration traces
+
+# Multi-IA orchestration (SECRET)
+scripts/.orchestrator_internal.py
+.orchestrator_config.env
+.gemini_cache/
+.perplexity_cache/
+.lm_studio_logs/
+prompts_orchestrateur.txt
+parallel_tasks.sh
+
+# Logs internes
+*.orchestration.log
+debug_multi_ia.json
+task_results_*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.cache/
+*.egg-info/
+dist/
+build/
+
+# Credentials
+*.env
+*.key
+*.secret
+credentials.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp
+/temp/
+/intermediate_results/
+/multi_ia_workspace/
+
+# Models (too large)
+models/*.bin
+models/*.pt
+*.onnx
+
+# Keep only:
+# app.py, requirements.txt, README.md, output/
